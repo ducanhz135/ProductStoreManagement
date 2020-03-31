@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Duc-Anh\source\repos\ProductStoreManagement\ProductStoreManagement\obj\Debug\
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\
 ProductStoreManagement
 none
 false
 DEBUG;TRACE
-C:\Users\Duc-Anh\source\repos\ProductStoreManagement\ProductStoreManagement\App.xaml
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\App.xaml
 41835479222
 
-141833361043
-171680501180
+17-1133483769
+17233648630
 LoginWindow.xaml;MainWindow.xaml;ResourceXaml\MainResource.xaml;UserControlPSM\ControlBarUC.xaml;
 
-True
+False
 
