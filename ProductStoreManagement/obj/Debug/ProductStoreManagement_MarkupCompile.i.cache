@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\App.xaml
-41835479222
+71819832214
 
-17-1133483769
+21-1359418102
 17233648630
-LoginWindow.xaml;MainWindow.xaml;ResourceXaml\MainResource.xaml;UserControlPSM\ControlBarUC.xaml;
+LoginWindow.xaml;MainWindow.xaml;ProductWindow.xaml;ResourceXaml\MainResource.xaml;SupplierWindow.xaml;UnitWindow.xaml;UserControlPSM\ControlBarUC.xaml;
 
-False
+True
 

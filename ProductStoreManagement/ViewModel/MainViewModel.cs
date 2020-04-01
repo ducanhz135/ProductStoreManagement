@@ -12,6 +12,9 @@ namespace ProductStoreManagement.ViewModel
     {
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
+        public ICommand UnitCommand { get; set; }
+        public ICommand SuplierCommand { get; set; }
+        public ICommand ProductCommand { get; set; }
 
         public MainViewModel()
         {
@@ -38,7 +41,20 @@ namespace ProductStoreManagement.ViewModel
                 }
             });
 
+            UnitCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                new UnitWindow().ShowDialog();
+            });
 
+            SuplierCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                new SupplierWindow().ShowDialog();
+            });
+
+            ProductCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                new ProductWindow().ShowDialog();
+            });
 
             //LoginWindow loginWindow = new LoginWindow();
             //loginWindow.ShowDialog();

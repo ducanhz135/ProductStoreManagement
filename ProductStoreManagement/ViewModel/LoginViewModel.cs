@@ -40,18 +40,21 @@ namespace ProductStoreManagement.ViewModel
         {
             if (p == null)
                 return;
+            IsLogin = true;
 
-            if (User.UserName == "admin" && User.Password == "pass")
-            {
-                IsLogin = true;
+            p.Close();
+            //if (User.UserName == "admin" && User.Password == "pass")
+            //{
+            //    IsLogin = true;
 
-                p.Close();
-            }
-            else
-            {
-                IsLogin = false;
-                MessageBox.Show("Wrong username and password!");
-            }
+            //    p.Close();
+            //}
+            //else
+            //{
+            //    IsLogin = false;
+            //    MessageBox.Show("Wrong username and password! " +
+            //        "please input username: admin & password: pass");
+            //}
         }
     }
 }
