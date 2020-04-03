@@ -19,13 +19,24 @@ namespace ProductStoreManagement.ViewModel
 
         private string _SelectedSuplier;
         public string SelectedSuplier { get => _SelectedSuplier; set { _SelectedSuplier = value; OnPropertyChanged(); } }
+        private bool _Checked;
+        public bool Checked { get => _Checked; set { _Checked = value; OnPropertyChanged(); } }
+        private string _available;
+        public string available { get => _available; set { _available = value; OnPropertyChanged(); } }
+
 
         public ICommand AddCommand { get; set; }
+        public ICommand RadioButtonCommand { get; set; }
 
         public ProductViewModel()
         {
-            AddCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
-                var a = SelectedSuplier;
+            
+            RadioButtonCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
+                var a = p;
+            });
+
+            AddCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
+                var a = available;
             });
         }
 

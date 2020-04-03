@@ -18,6 +18,7 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         x:Name="window"
+        DataContext="{StaticResource ProductVM}"
         Title="ProductWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -78,9 +79,21 @@
                                 Margin="20">
                         <Label>Available:</Label>
 
-                        <RadioButton Content="Yes"
-                                     IsChecked="{Binding available, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                        <RadioButton Content="No" />
+                        <!--<RadioButton Content="Yes"
+                                     IsChecked="{Binding Available, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <RadioButton Content="No" />-->
+
+                        <RadioButton x:Name="radioButton1"
+                                     Content="Yes"
+                                     IsChecked="True"
+                                     Command="{Binding RadioButtonCommand }"
+                                     CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" />
+
+                        <RadioButton x:Name="radioButton2"
+                                     Content="No"
+                                     IsChecked="True"
+                                     Command="{Binding RadioButtonCommand }"
+                                     CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" />
 
 
                     </StackPanel>
@@ -91,7 +104,7 @@
                                  Margin="5">
                 <WrapPanel>
                     <Button Command="{Binding AddCommand}"
-                            CommandParameter="{Binding ElementName=window}"
+                           
                             Content="Add"
                             Margin="5"
                             Width="100"></Button>

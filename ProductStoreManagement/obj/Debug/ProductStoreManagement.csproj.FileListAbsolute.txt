@@ -68,3 +68,9 @@ F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\Supplier
 F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\SupplierWindow.baml
 F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\ProductWindow.g.cs
 F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\ProductWindow.baml
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\UserWindow.g.cs
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\UserWindow.baml
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\InputWindow.g.cs
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\InputWindow.baml
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\OutputWindow.g.cs
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\OutputWindow.baml
