@@ -14,12 +14,12 @@ namespace ProductStoreManagement.ViewModel
     {
         public bool IsLogin { get; set; }
 
-        public UserModel User = new UserModel();
-        public string UserName { set { User.UserName = value; } }
-        //private string _UserName;
-        //public string UserName { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }
-        //private string _Password;
-        //public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
+        //public UserModel User = new UserModel();
+        //public string UserName { set { User.UserName = value; } }
+        private string _UserName;
+        public string UserName { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }
+        private string _Password;
+        public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
 
 
         public ICommand CloseCommand { get; set; }
@@ -33,28 +33,26 @@ namespace ProductStoreManagement.ViewModel
             //User.UserName = string.Empty;
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
             CloseCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { p.Close(); });
-            PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { User.Password = p.Password; });
+            PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
         }
 
         void Login(Window p)
         {
             if (p == null)
                 return;
-            IsLogin = true;
+            var userCount = DataProvider.Ins.DB.Users.Where(x => x.UserName == _UserName && x.Password == _Password).Count();
+            if (userCount > 0)
+            {
+                IsLogin = true;
 
-            p.Close();
-            //if (User.UserName == "admin" && User.Password == "pass")
-            //{
-            //    IsLogin = true;
-
-            //    p.Close();
-            //}
-            //else
-            //{
-            //    IsLogin = false;
-            //    MessageBox.Show("Wrong username and password! " +
-            //        "please input username: admin & password: pass");
-            //}
+                p.Close();
+            }
+            else
+            {
+                IsLogin = false;
+                MessageBox.Show("Wrong username and password! " +
+                    "please input username: admin & password: pass");
+            }
         }
     }
 }
