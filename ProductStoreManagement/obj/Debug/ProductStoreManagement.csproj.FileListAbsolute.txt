@@ -74,3 +74,8 @@ F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\InputWin
 F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\InputWindow.baml
 F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\OutputWindow.g.cs
 F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\OutputWindow.baml
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\bin\Debug\EntityFramework.dll
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\bin\Debug\EntityFramework.SqlServer.dll
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\bin\Debug\EntityFramework.xml
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\bin\Debug\EntityFramework.SqlServer.xml
+F:\Training\WPF\ProductStoreManagement\ProductStoreManagement\obj\Debug\ProductStoreManagement_Content.g.cs
