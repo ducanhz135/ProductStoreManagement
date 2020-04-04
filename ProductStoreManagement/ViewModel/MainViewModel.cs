@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ProductStoreManagement.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +12,9 @@ namespace ProductStoreManagement.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        private ObservableCollection<InStock> _InStocks;
+        public ObservableCollection<InStock> InStocks { get => _InStocks; set { _InStocks = value; OnPropertyChanged(); } }
+
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand UnitCommand { get; set; }
@@ -37,6 +42,7 @@ namespace ProductStoreManagement.ViewModel
                 if (loginVM.IsLogin)
                 {
                     p.Show();
+                    LoadInStock();
                 }
                 else
                 {
@@ -74,8 +80,35 @@ namespace ProductStoreManagement.ViewModel
                 new OutputWindow().ShowDialog();
             });
 
-            //LoginWindow loginWindow = new LoginWindow();
-            //loginWindow.ShowDialog();
         }
+
+        private void LoadInStock()
+        {
+            InStocks = new ObservableCollection<InStock>();
+            var dataSet = DataProvider.Ins.DB;
+
+            var objects = dataSet.Objects;
+            var index = 1;
+            foreach (var item in objects)
+            {
+
+                var inputSum = dataSet.InputInfoes.Where(p => p.IdObject == item.Id).Sum(x => x.Count) ?? 0;
+                var outpuSum = dataSet.OutputInfoes.Where(p => p.IdObject == item.Id).Sum(x => x.Count) ?? 0;
+
+                var inStock = new InStock();
+
+                inStock.Index = index;
+                inStock.Count = inputSum - outpuSum;
+                inStock.Object = item;
+
+                InStocks.Add(inStock);
+
+                index++;
+
+            }
+
+
+        }
+
     }
 }

@@ -41,9 +41,11 @@ create table Object
 	DisplayName nvarchar(max),
 	IdUnit int not null,
 	QRCode nvarchar(max),
+	IdSuplier int not null,
 	BarCode nvarchar(max)
 
 	foreign key(IdUnit) references Unit(Id),
+	foreign key(IdSuplier) references Suplier(Id),
 )
 go
 
@@ -70,9 +72,9 @@ create table Users
 	foreign key (IdRole) references UserRole(Id)
 )
 go
-insert into Users(DisplayName, Username, Password, IdRole) values(N'duc anh', N'admin', N'db69fc039dcbd2962cb4d28f5891aae1', 1)
+insert into Users(DisplayName, Username, Password, IdRole) values(N'duc anh', N'admin', N'pass', 1)
 go
-insert into Users(DisplayName, Username, Password, IdRole) values(N'staff', N'staff', N'978aae9bb6bee8fb75de3e4830a1be46', 2)
+insert into Users(DisplayName, Username, Password, IdRole) values(N'staff', N'staff', N'pass', 2)
 go
 
 create table Input
@@ -87,7 +89,6 @@ create table InputInfo
 	Id nvarchar(128) primary key,
 	IdObject nvarchar(128) not null,
 	IdInput nvarchar(128) not null,
-	IdSuplier int not null,
 	Count int,
 	InputPrice float default 0,
 	OutputPrice float default 0,
@@ -96,7 +97,7 @@ create table InputInfo
 
 	foreign key (IdObject) references Object(Id),
 	foreign key (IdInput) references Input(Id),
-	foreign key(IdSuplier) references Suplier(Id),
+	
 )
 go
 

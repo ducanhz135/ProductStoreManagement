@@ -43,8 +43,8 @@
           <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="DisplayName" Type="nvarchar(max)" />
           <Property Name="IdUnit" Type="int" Nullable="false" />
-          <Property Name="IdSuplier" Type="int" Nullable="false" />
           <Property Name="QRCode" Type="nvarchar(max)" />
+          <Property Name="IdSuplier" Type="int" Nullable="false" />
           <Property Name="BarCode" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Output">
@@ -288,8 +288,8 @@
           <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IdUnit" Type="Int32" Nullable="false" />
-          <Property Name="IdSuplier" Type="Int32" Nullable="false" />
           <Property Name="QRCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdSuplier" Type="Int32" Nullable="false" />
           <Property Name="BarCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="InputInfoes" Relationship="Self.FK__InputInfo__Statu__22AA2996" FromRole="Object" ToRole="InputInfo" />
           <NavigationProperty Name="Unit" Relationship="Self.FK__Object__BarCode__164452B1" FromRole="Object" ToRole="Unit" />
@@ -544,8 +544,8 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
                 <ScalarProperty Name="IdUnit" ColumnName="IdUnit" />
-                <ScalarProperty Name="IdSuplier" ColumnName="IdSuplier" />
                 <ScalarProperty Name="QRCode" ColumnName="QRCode" />
+                <ScalarProperty Name="IdSuplier" ColumnName="IdSuplier" />
                 <ScalarProperty Name="BarCode" ColumnName="BarCode" />
               </MappingFragment>
             </EntityTypeMapping>
