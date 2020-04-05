@@ -53,6 +53,7 @@ namespace ProductStoreManagement.ViewModel
                 MessageBox.Show("Wrong username and password! " +
                     "please input username: admin & password: pass");
             }
+
         }
     }
 }

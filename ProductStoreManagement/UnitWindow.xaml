@@ -18,8 +18,7 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         x:Name="window"
-        
-        
+        DataContext="{StaticResource UnitVM}"
         Title="UnitWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -43,7 +42,7 @@
             <materialDesign:Card Grid.Row="0"
                                  Margin="5">
                 <Grid>
-                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}"
+                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              Width="100"
                              HorizontalAlignment="Left"
                              Margin="5"
@@ -75,7 +74,7 @@
                                  VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListView ItemsSource="{Binding List}"
-                              SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                              SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Id"
