@@ -18,6 +18,7 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         x:Name="window"
+        DataContext="{StaticResource SuplierVM}"
         Title="SupplierWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -93,7 +94,7 @@
                                  VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListView ItemsSource="{Binding List}"
-                              SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                              SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Id"
@@ -109,7 +110,7 @@
                                 <GridViewColumn Header="Other Info"
                                                 DisplayMemberBinding="{Binding MoreInfo}"></GridViewColumn>
                                 <GridViewColumn Header="Start Date"
-                                                DisplayMemberBinding="{Binding ContractDate}"></GridViewColumn>
+                                                DisplayMemberBinding="{Binding ContractDate, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
 
                             </GridView>
                         </ListView.View>
