@@ -26,7 +26,14 @@ namespace ProductStoreManagement.ViewModel
         }
 
         private string _DisplayName;
-        public string DisplayName { get => _DisplayName; set { _DisplayName = value; OnPropertyChanged(); } }
+        public string DisplayName { get => _DisplayName;
+            set {
+                _DisplayName = value;
+                OnPropertyChanged();
+                AddUnit();
+                EditUnit();
+            }
+        }
 
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
@@ -35,17 +42,24 @@ namespace ProductStoreManagement.ViewModel
         {
             List = new ObservableCollection<Unit>(DataProvider.Ins.DB.Units);
 
-            AddCommand = new RelayCommand<object>((p) => 
+            AddUnit();
+
+            EditUnit();
+        }
+
+        private void AddUnit()
+        {
+            AddCommand = new RelayCommand<object>((p) =>
             {
 
                 if (string.IsNullOrEmpty(DisplayName))
                 {
                     return false;
                 }
-                    
 
-                var displayList = DataProvider.Ins.DB.Units.Where(x => x.DisplayName == DisplayName);
-                if (displayList != null)
+
+                var displayList = DataProvider.Ins.DB.Units.Where(x => x.DisplayName == DisplayName).Count();
+                if (displayList > 0)
                 {
                     return false;
 
@@ -63,15 +77,18 @@ namespace ProductStoreManagement.ViewModel
                 List.Add(unit);
 
             });
+        }
 
+        private void EditUnit()
+        {
             EditCommand = new RelayCommand<object>((p) =>
             {
-                //if (string.IsNullOrEmpty(DisplayName) || SelectedItem == null)
-                //    return false;
+                if (string.IsNullOrEmpty(DisplayName) || SelectedItem == null)
+                    return false;
 
-                //var displayList = DataProvider.Ins.DB.Units.Where(x => x.DisplayName == DisplayName);
-                //if (displayList == null || displayList.Count() != 0)
-                //    return false;
+                var displayList = DataProvider.Ins.DB.Units.Where(x => x.DisplayName == DisplayName);
+                if (displayList == null || displayList.Count() != 0)
+                    return false;
 
                 return true;
 
@@ -82,7 +99,8 @@ namespace ProductStoreManagement.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 List.Remove(SelectedItem);
-                List.Add(unit);
+                List.Add(unit);
+
 
                 SelectedItem = unit;
             });
